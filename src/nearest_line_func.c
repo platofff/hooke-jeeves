@@ -5,7 +5,7 @@
 #include "func.h"
 #include "hnj.h"
 
-int prepare() {
+int prepare(void) {
     fputs("Количество точек: ", stdout);
     if (scanf("%lu", &points_size) != 1)
     {
@@ -25,7 +25,7 @@ int prepare() {
     return 0;
 }
 
-int finish() {
+int finish(void) {
     free(points);
     char b_sym[2] = {'\0', '\0'};
     if (current.b >= 0.0)

@@ -3,6 +3,7 @@
 #include <math.h>
 #include <stdbool.h>
 #include <tgmath.h>
+#include <float.h>
 #include "func.h"
 #include "hnj.h"
 
@@ -80,7 +81,7 @@ int main()
         while (hnj_iter(&x4.a, x4.b, &x4.value, start_step.a, 1) || hnj_iter(&x4.b, x4.a, &x4.value, start_step.b, 0))
         {
         } // Повторяем первую фазу не уменьшая шаг
-        if (x4.a != x3.a || x4.b != x3.b)
+        if (x4.a > x3.a + LDBL_EPSILON || x4.a < x3.a - LDBL_EPSILON || x4.b > x3.b + LDBL_EPSILON || x4.b < x3.b - LDBL_EPSILON)
         {                    // Удалось найти точку x4, отличную от x3
             start = current; // x1 принимает значение x2
             current = x4;    // x2 принимает значение x4
